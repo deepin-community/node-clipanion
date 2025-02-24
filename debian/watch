@@ -1,0 +1,7 @@
+version=4
+# It is not recommended use npmregistry. Please investigate more.
+# Origin url: https://github.com/arcanis/clipanion
+# Take a look at https://wiki.debian.org/debian/watch/
+opts="searchmode=plain,pgpmode=none,dversionmangle=auto,repack,compression=xz,repacksuffix=+dfsg" \
+ https://registry.npmjs.org/clipanion \
+ https://registry.npmjs.org/clipanion/-/clipanion-(\d[\d\.]*)@ARCHIVE_EXT@

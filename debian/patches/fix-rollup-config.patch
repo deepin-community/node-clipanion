@@ -1,0 +1,65 @@
+Fix for rollup config
+--- a/rollup.config.js
++++ b/rollup.config.js
+@@ -1,7 +1,9 @@
+ import ts         from '@rollup/plugin-typescript';
+ import path       from 'path';
+-import copy       from 'rollup-plugin-copy';
+-import multiInput from 'rollup-plugin-multi-input';
++import { fileURLToPath } from 'node:url';
++import glob from 'glob';
++// import copy       from 'rollup-plugin-copy';
++// import multiInput from 'rollup-plugin-multi-input';
+ 
+ // Since we're using `multiInput`, the entries output path are already set.
+ // We only need to define the extension we want to give to the file.
+@@ -9,16 +11,23 @@
+ 
+ // eslint-disable-next-line arca/no-default-export
+ export default {
+-  input: [`sources/**/*.ts`],
++  // input: [`sources/**/*.ts`],
++  input: Object.fromEntries(
++    glob.sync('sources/**/*.ts').map(file => [
++      path.relative('sources', file.slice(0, file.length - path.extname(file).length)), fileURLToPath(new URL(file, import.meta.url))
++    ])
++  ),
+   output: [
+     {
+       dir: `lib`,
+-      entryFileNames: entryFileNames(`.mjs`),
++      // entryFileNames: entryFileNames(`.mjs`),
++      entryFileNames: path.basename('[name]', '.ts') + '.mjs',
+       format: `es`,
+     },
+     {
+       dir: `lib`,
+-      entryFileNames: entryFileNames(`.js`),
++      // entryFileNames: entryFileNames(`.js`),
++      entryFileNames: path.basename('[name]', '.ts') + '.js',
+       format: `cjs`,
+     },
+   ],
+@@ -29,17 +38,21 @@
+     `../platform`,
+   ],
+   plugins: [
++    /*
+     multiInput({
+       relative: `sources/`,
+     }),
++    */
+     ts({
+       tsconfig: `tsconfig.dist.json`,
+-      include: `./sources/**/*`,
++      // include: `./sources/**/*`,
+     }),
++    /*
+     copy({
+       targets: [
+         {src: `./sources/platform/package.json`, dest: `./lib/platform/`},
+       ],
+     }),
++    */
+   ],
+ };
