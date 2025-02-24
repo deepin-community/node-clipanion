@@ -1,0 +1,3 @@
+# tests/__snapshots__/treeshake.test.ts.snap.js is an output reference for snapshot testing.
+node-clipanion source: source-is-missing [*]
+node-clipanion source: source-contains-prebuilt-javascript-object [*]

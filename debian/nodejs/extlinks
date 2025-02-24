@@ -1,0 +1,10 @@
+get-stream	test
+@rollup/plugin-typescript
+ts-node	test
+tslib	test
+typanion
+typescript
+@types/mocha	test
+@types/chai	test
+@types/chai-as-promised	test
+@types/node

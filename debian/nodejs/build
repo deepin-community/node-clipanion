@@ -1,0 +1,3 @@
+rollup -c --bundleConfigAsCjs
+cp -a sources/platform/package.json lib/platform/
+debian/apply-publish-config ./package.json

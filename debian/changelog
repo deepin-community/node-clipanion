@@ -1,5 +1,57 @@
-template-repository (1.0-1) unstable; urgency=medium
+node-clipanion (3.2.1+dfsg-2) unstable; urgency=medium
 
-  * Initial release
+  * Team upload
+  * Update lintian override info format in d/source/lintian-overrides
+    on line 2-3
+  * Fix nocheck
+  * Declare compliance with policy 4.7.0
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Yadd <yadd@debian.org>  Sat, 27 Apr 2024 07:27:50 +0400
+
+node-clipanion (3.2.1+dfsg-1) unstable; urgency=medium
+
+  * Team upload
+  * New upstream version 3.2.1+dfsg
+  * Refresh patches
+  * Update build command
+  * Update test command
+  * Add script to apply publishConfig in package.json
+
+ -- Israel Galadima <izzygaladima@gmail.com>  Tue, 19 Sep 2023 18:29:19 +0000
+
+node-clipanion (3.1.0+dfsg-1) unstable; urgency=medium
+
+  * Team upload
+
+  [ Sunday Nkwuda ]
+  * use @rollup/plugin-typescript
+  * set minimum required version for node-chai-as-promised
+
+  [ Yadd ]
+  * Set upstream metadata fields: Bug-Submit.
+  * Remove obsolete fields Contact, Name from debian/upstream/metadata
+    (already present in machine-readable debian/copyright).
+  * Update standards version to 4.6.0, no changes needed.
+  * Drop nodejs dependency
+  * Mark test dependencies with <!nocheck>
+
+  [ Israel Galadima ]
+  * Exclude .yarn folder
+  * New upstream version 3.1.0+dfsg
+  * Remove unnecessary patches
+  * Set main field to correct package entry file
+  * Allow catch error variable of type any
+  * Update copyright year
+  * Bump standards version
+  * Mark all files in sources folder as individual entry points
+  * Override source-is-missing errors
+  * Mark website folder as non-component
+  * Marked test build deps with nocheck
+
+ -- Israel Galadima <izzygaladima@gmail.com>  Wed, 15 Feb 2023 08:42:47 +0000
+
+node-clipanion (2.6.2-1) experimental; urgency=medium
+
+  * Initial release (Closes: #988281)
+
+ -- Sunday Nkwuda <scletus40@yahoo.com>  Thu, 03 Jun 2021 02:04:48 +0000
